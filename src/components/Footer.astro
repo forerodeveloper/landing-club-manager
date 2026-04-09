@@ -1,0 +1,167 @@
+---
+// Footer.astro
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <span class="logo-text">Club Sport <span class="accent-text">Manager</span></span>
+      </div>
+      <p>La plataforma SaaS definitiva para la administración de cualquier club deportivo. Control de pagos, asistencia y registro para fútbol, natación, artes marciales y más.</p>
+      <div class="social-links">
+        <!-- Social icons placeholder -->
+        <span>𝕏</span>
+        <span>📸</span>
+        <span>💼</span>
+      </div>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Producto</h4>
+      <a href="#features">Características</a>
+      <a href="#pricing">Planes</a>
+      <a href="#">Casos de éxito</a>
+      <a href="#">Guías</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Compañía</h4>
+      <a href="#">Sobre nosotros</a>
+      <a href="#">Contacto</a>
+      <a href="#">Términos y condiciones</a>
+      <a href="#">Privacidad</a>
+    </div>
+
+    <div class="footer-newsletter">
+      <h4>Suscríbete</h4>
+      <p>Recibe consejos sobre gestión deportiva.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="tu@email.com" />
+        <button class="btn btn-primary">Unirse</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom container">
+    <p>&copy; {new Date().getFullYear()} Club Sport Manager. Todos los derechos reservados. Diseñado para la excelencia deportiva.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 6rem 0 2rem;
+    background: #0b1120;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 1.2fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .footer-brand p {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+
+  .social-links span {
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .social-links span:hover {
+    color: var(--accent);
+  }
+
+  h4 {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+
+  .footer-newsletter p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .newsletter-form input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: white;
+    flex-grow: 1;
+    min-width: 0;
+  }
+
+  .newsletter-form button {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

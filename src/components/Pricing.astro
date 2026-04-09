@@ -1,0 +1,179 @@
+---
+// Pricing.astro
+const plans = [
+  {
+    name: "Basic",
+    price: "Free",
+    description: "Ideal para entrenadores independientes.",
+    features: ["Hasta 15 jugadores", "Asistencia básica", "Reportes mensuales"],
+    highlight: false
+  },
+  {
+    name: "Starter",
+    price: "$19",
+    description: "Para pequeñas academias en crecimiento.",
+    features: ["Hasta 50 jugadores", "Gestión de pagos", "Inscripciones públicas", "Soporte email"],
+    highlight: false
+  },
+  {
+    name: "Pro",
+    price: "$49",
+    description: "La solución completa para clubes medianos.",
+    features: ["Jugadores ilimitados", "Multi-entrenador", "Finanzas avanzadas", "Soporte 24/7"],
+    highlight: true
+  },
+  {
+    name: "Elite",
+    price: "Custom",
+    description: "Para grandes organizaciones y ligas.",
+    features: ["Multi-sedes", "White label", "API Access", "Account Manager dedicado"],
+    highlight: false
+  }
+];
+---
+
+<section id="pricing" class="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="fade-in">Planes adaptados a tu <span class="accent-text">crecimiento</span></h2>
+      <p class="fade-in">Escoge la opción que mejor se adapte al tamaño de tu club deportivo.</p>
+    </div>
+
+    <div class="pricing-grid">
+      {plans.map((plan, index) => (
+        <div class={`pricing-card fade-in ${plan.highlight ? 'highlight' : ''}`} style={`animation-delay: ${0.1 * (index + 1)}s`}>
+          {plan.highlight && <div class="popular-badge">Más Popular</div>}
+          <h3>{plan.name}</h3>
+          <div class="price">
+            <span class="currency">{plan.price.startsWith('$') ? '$' : ''}</span>
+            <span class="value">{plan.price.replace('$', '')}</span>
+            {plan.price !== 'Free' && plan.price !== 'Custom' && <span class="period">/mes</span>}
+          </div>
+          <p class="desc">{plan.description}</p>
+          <ul class="plan-features">
+            {plan.features.map(f => (
+              <li><span class="check">✓</span> {f}</li>
+            ))}
+          </ul>
+          <a href="https://app.clubsportmanager.com/register" class={`btn ${plan.highlight ? 'btn-primary' : 'btn-secondary'}`}>
+            {plan.price === 'Custom' ? 'Contactar' : 'Empezar ahora'}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding: 6rem 0;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    border-color: rgba(22, 163, 74, 0.4);
+    transform: translateY(-5px);
+  }
+
+  .pricing-card.highlight {
+    background: rgba(22, 163, 74, 0.05);
+    border: 2px solid var(--accent);
+    box-shadow: 0 20px 40px -10px rgba(22, 163, 74, 0.2);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .price {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .currency {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .value {
+    font-size: 3rem;
+    font-weight: 900;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .period {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .desc {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    min-height: 3rem;
+  }
+
+  .plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+    flex-grow: 1;
+  }
+
+  .plan-features li {
+    margin-bottom: 0.8rem;
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .check {
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+</style>

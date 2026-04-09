@@ -1,23 +1,129 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Club Sport Manager | Gestión para Clubes de Fútbol, Baloncesto, Tenis y más",
+	description = "La plataforma SaaS definitiva para la administración de cualquier club deportivo. Control de pagos, asistencia y registro para fútbol, natación, artes marciales y más."
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		
+		<!-- Canonical & Localization -->
+		<link rel="canonical" href={Astro.url} />
+		<link rel="alternate" hreflang="es" href={Astro.url} />
+		<link rel="alternate" hreflang="x-default" href={Astro.url} />
+
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content="club sport manager, gestión polideportiva, software academias deportivas, control asistencia multideporte, administración deportiva saas, gestión escuelas formación" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+		<meta name="author" content="Club Sport Manager" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:locale" content="es_ES">
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:site_name" content="Club Sport Manager">
+		<meta property="og:title" content="Club Sport Manager: Gestiona cualquier deporte en una sola plataforma" />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/assets/og-image-csm.png" />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content="Club Sport Manager: Gestiona cualquier deporte en una sola plataforma" />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="/assets/og-image-csm.png" />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+		<!-- Google Analytics (Uncomment and replace ID when ready) -->
+		<!-- 
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-XXXXXXXXXX');
+		</script> 
+		-->
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	:root {
+		--accent: #16A34A;
+		--accent-dark: #15803d;
+		--background: #0F172A;
+		--foreground: #F8FAFC;
+		--muted: #64748b;
+		--card-bg: rgba(30, 41, 59, 0.5);
+		--border: rgba(255, 255, 255, 0.1);
+		--glass: rgba(15, 23, 42, 0.8);
+	}
+
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		background: var(--background);
+		color: var(--foreground);
+		scroll-behavior: smooth;
+	}
+
 	body {
 		margin: 0;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Outfit', sans-serif;
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.container {
 		width: 100%;
-		height: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+
+	/* Animations */
+	@keyframes fadeIn {
+		from { opacity: 0; transform: translateY(10px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	.fade-in {
+		animation: fadeIn 0.8s ease-out forwards;
 	}
 </style>
+

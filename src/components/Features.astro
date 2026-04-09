@@ -1,0 +1,118 @@
+---
+// Features.astro
+const features = [
+  {
+    title: "Control de Asistencia Inteligente",
+    description: "Registro rápido por categorías y sesiones en cualquier deporte. Optimizado para entrenadores en campo.",
+    icon: "⏱️"
+  },
+  {
+    title: "Pagos y Finanzas sin Estrés",
+    description: "Seguimiento de mensualidades, abonos y deudas automáticas. Envío de recordatorios a padres y alumnos.",
+    icon: "💳"
+  },
+  {
+    title: "Inscripciones Públicas",
+    description: "Enlaces de registro personalizados por disciplina para facilitar el ingreso de nuevos talentos.",
+    icon: "📝"
+  },
+  {
+    title: "Reportes de Rendimiento",
+    description: "Visualiza el crecimiento de tu club con datos reales. Analíticas de asistencia y recaudación.",
+    icon: "📊"
+  }
+];
+---
+
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="fade-in">Funcionalidades que <span class="accent-text">transforman</span> tu gestión</h2>
+      <p class="fade-in">Todo lo que necesitas para llevar tu academia al siguiente nivel, sin importar la disciplina deportiva.</p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((feature, index) => (
+        <div class="feature-card fade-in" style={`animation-delay: ${0.1 * (index + 1)}s`}>
+          <div class="feature-icon">{feature.icon}</div>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, var(--background) 0%, rgba(22, 163, 74, 0.05) 50%, var(--background) 100%);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .section-header p {
+    font-size: 1.15rem;
+    color: var(--muted);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5), 0 0 20px rgba(22, 163, 74, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .feature-card p {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    h2 { font-size: 2rem; }
+    .feature-card { padding: 2rem; }
+  }
+</style>
