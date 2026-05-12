@@ -1,24 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import Pricing from '../components/Pricing.astro';
-import Footer from '../components/Footer.astro';
+import Navbar from '../components/landing/Navbar.astro';
+import Hero from '../components/landing/Hero.astro';
+import Stats from '../components/landing/Stats.astro';
+import Features from '../components/landing/Features.astro';
+import Showcase from '../components/landing/Showcase.astro';
+import HowItWorks from '../components/landing/HowItWorks.astro';
+import AppScreenshots from '../components/landing/AppScreenshots.astro';
+import Testimonials from '../components/landing/Testimonials.astro';
+import Pricing from '../components/landing/Pricing.astro';
+import FAQ from '../components/landing/FAQ.astro';
+import CTA from '../components/landing/CTA.astro';
+import Footer from '../components/landing/Footer.astro';
 ---
 
 <Layout>
 	<Navbar />
-	<main>
+	<main class="min-h-screen bg-background">
 		<Hero />
+		<Stats />
 		<Features />
+		<Showcase />
+		<HowItWorks />
+		<AppScreenshots />
+		<Testimonials />
 		<Pricing />
+		<FAQ />
+		<CTA />
 	</main>
 	<Footer />
 </Layout>
-
-<style>
-	main {
-		flex: 1;
-	}
-</style>

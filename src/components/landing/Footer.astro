@@ -1,0 +1,34 @@
+<footer class="border-t border-border bg-card">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
+    <div>
+      <a href="#" class="flex items-center gap-2 mb-4">
+        <img src="/logo-horizontal-verde-2.png" alt="Club Manager" class="h-9 w-auto" />
+      </a>
+      <p class="max-w-xs text-sm text-muted-foreground">
+        La plataforma todo-en-uno para gestionar, cobrar y hacer crecer tu club deportivo.
+      </p>
+    </div>
+
+    {[
+      { t: "Producto", l: ["Características", "Precios", "Demo", "Novedades"] },
+      { t: "Empresa", l: ["Nosotros", "Blog", "Casos de éxito", "Contacto"] },
+      { t: "Legal", l: ["Privacidad", "Términos", "Cookies"] },
+    ].map((c) => (
+      <div>
+        <p class="text-[11px] font-bold uppercase tracking-wider text-foreground">{c.t}</p>
+        <ul class="mt-4 space-y-2">
+          {c.l.map((it) => (
+            <li><a href="#" class="text-sm text-muted-foreground hover:text-foreground">{it}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="border-t border-border">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-muted-foreground sm:flex-row sm:px-6">
+      <p>© {new Date().getFullYear()} ClubManager. Todos los derechos reservados.</p>
+      <p>Hecho con ⚽ para clubes que crecen.</p>
+    </div>
+  </div>
+</footer>

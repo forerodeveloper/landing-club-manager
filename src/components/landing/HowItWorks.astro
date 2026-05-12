@@ -1,0 +1,24 @@
+---
+const steps = [
+  { n: "01", t: "Configura tu club", d: "Registra jugadores, padres, entrenadores y categorías. Nuestro equipo te ayuda a migrar tus datos sin costo." },
+  { n: "02", t: "Automatiza los pagos", d: "Define mensualidades, matrículas y planes de cobro. Los padres reciben recordatorios desde la app con push notifications automáticas." },
+  { n: "03", t: "Gestiona todo en un lugar", d: "Controla ingresos, asistencia, nómina de entrenadores y comunicaciones. Toma decisiones con datos reales." },
+];
+---
+
+<section id="how" class="mx-auto max-w-7xl px-4 py-24 sm:px-6">
+  <div class="mx-auto max-w-2xl text-center">
+    <p class="text-[11px] font-bold uppercase tracking-wider text-primary">Cómo funciona</p>
+    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Tres pasos para profesionalizar tu club</h2>
+  </div>
+
+  <div class="mt-14 grid gap-6 md:grid-cols-3">
+    {steps.map((s) => (
+      <div class="relative rounded-3xl border border-border bg-card p-8 shadow-soft">
+        <span class="text-5xl font-bold text-gradient">{s.n}</span>
+        <h3 class="mt-3 text-xl font-semibold">{s.t}</h3>
+        <p class="mt-2 text-sm text-muted-foreground">{s.d}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import logo from '../../assets/logo-horizontal-verde-2.png';
+
+const links = [
+  { label: "Características", href: "#features" },
+  { label: "Cómo funciona", href: "#how" },
+  { label: "Resultados", href: "#stats" },
+  { label: "Precios", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+    <a href="#" class="flex items-center gap-2">
+      <img src="/logo-horizontal-verde-2.png" alt="Club Manager" class="h-9 w-auto" />
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {links.map((l) => (
+        <a href={l.href} class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden items-center gap-2 md:flex">
+      <a href="https://app.clubsportmanager.com/login" target="_blank" class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2">
+        Iniciar sesión
+      </a>
+      <a href="https://wa.me/573204197482?text=Hola%2C%20me%20interesa%20solicitar%20una%20demo%20de%20Club%20Manager" target="_blank" class="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-9 px-4 py-2">
+        Solicitar demo
+      </a>
+    </div>
+
+    <button id="mobile-menu-button" class="md:hidden" aria-label="Menú">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="12" y2="12"/>
+        <line x1="4" x2="20" y1="6" y2="6"/>
+        <line x1="4" x2="20" y1="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-border bg-background md:hidden">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4">
+      {links.map((l) => (
+        <a href={l.href} class="text-sm font-medium text-muted-foreground">
+          {l.label}
+        </a>
+      ))}
+      <a href="https://wa.me/573204197482?text=Hola%2C%20me%20interesa%20solicitar%20una%20demo%20de%20Club%20Manager" target="_blank" class="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-9 px-4 py-2">
+        Solicitar demo
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

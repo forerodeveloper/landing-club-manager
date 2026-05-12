@@ -1,0 +1,100 @@
+---
+const screenshots = [
+  {
+    title: "Envío de convocatorias",
+    desc: "Notifica a los padres sobre los entrenamientos y partidos con un solo clic",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>`,
+    imagePlaceholder: "convocatorias-app.png",
+  },
+  {
+    title: "Notificación de inasistencia",
+    desc: "Alerta automática cuando un jugador no asiste al entrenamiento",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" x2="9" y1="9" y2="15"/><line x1="9" x2="15" y1="9" y2="15"/></svg>`,
+    imagePlaceholder: "inasistencia-app.png",
+  },
+  {
+    title: "Pagos pendientes",
+    desc: "Los padres reciben alertas push de mensualidades y pagos pendientes",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>`,
+    imagePlaceholder: "pagos-app.png",
+  },
+  {
+    title: "Gestión de pago para entrenadores",
+    desc: "Calcula salarios y bonificaciones según las horas trabajadas",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
+    imagePlaceholder: "pagos-entrenadores-app.png",
+  },
+  {
+    title: "Aprobación de horas",
+    desc: "Valida las horas de trabajo de entrenadores y personal administrativo",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+    imagePlaceholder: "horas-app.png",
+  },
+  {
+    title: "Carnet del jugador",
+    desc: "Acceso rápido a información de jugadores, foto y documentos",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+    imagePlaceholder: "carnet-jugador-app.png",
+  },
+];
+---
+
+<section id="app-showcase" class="mx-auto max-w-7xl px-4 py-24 sm:px-6">
+  <div class="mx-auto max-w-2xl text-center">
+    <p class="text-[11px] font-bold uppercase tracking-wider text-primary">La app en acción</p>
+    <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+      Descubre la potencia de Club Manager en tu celular
+    </h2>
+    <p class="mt-4 text-muted-foreground">
+      Toda la información de tu club al alcance de tus dedos. Disponible para iOS y Android.
+    </p>
+  </div>
+
+  <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {screenshots.map((screenshot, index) => (
+      <div class="group relative rounded-3xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-card">
+        <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-hero text-primary-foreground shadow-glow">
+          <div set:html={screenshot.icon} />
+        </div>
+
+        <h3 class="text-xl font-semibold">{screenshot.title}</h3>
+        <p class="mt-2 text-sm text-muted-foreground">{screenshot.desc}</p>
+
+        <!-- Phone mockup placeholder -->
+        <div class="mt-6 mx-auto w-full max-w-[240px] aspect-[9/19] rounded-[2.5rem] border-8 border-border bg-muted/30 relative overflow-hidden">
+          <!-- Phone notch -->
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-xl z-10" />
+
+          <!-- Screen content placeholder -->
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10 p-8">
+            <div class="text-center">
+              <div class="mx-auto mb-3 h-16 w-16 rounded-full bg-gradient-hero p-4 shadow-glow">
+                <div class="h-full w-full flex items-center justify-center text-primary-foreground">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
+                    <path d="M12 18h.01"/>
+                  </svg>
+                </div>
+              </div>
+              <p class="text-xs font-medium text-muted-foreground">
+                Captura de pantalla
+              </p>
+              <p class="text-[10px] text-muted-foreground/60 mt-1">
+                {screenshot.title}
+              </p>
+            </div>
+          </div>
+
+          <!-- Phone home indicator -->
+          <div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-24 h-1 bg-border rounded-full" />
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-12 text-center">
+    <p class="text-sm text-muted-foreground">
+      Próximamente disponible en App Store y Google Play
+    </p>
+  </div>
+</section>

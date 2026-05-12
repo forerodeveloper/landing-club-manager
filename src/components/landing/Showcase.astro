@@ -1,0 +1,181 @@
+<section class="bg-muted/40 py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-[11px] font-bold uppercase tracking-wider text-primary">Resultados reales</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+        Tu club, en cifras que hablan
+      </h2>
+      <p class="mt-4 text-muted-foreground">
+        Datos en vivo del recaudo, gastos y asistencia. Toma decisiones con un vistazo.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 lg:grid-cols-3">
+      <div class="rounded-3xl border border-border bg-card p-6 shadow-card lg:col-span-2">
+        <div class="flex items-start justify-between">
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Recaudo vs morosidad</p>
+            <h3 class="mt-1 text-xl font-semibold">Tu cartera mes a mes</h3>
+          </div>
+          <div class="flex gap-2">
+            <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold text-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/>
+              </svg>
+              Pagado
+            </span>
+            <span class="inline-flex items-center gap-1 rounded-full bg-warning/15 px-2 py-1 text-xs font-semibold text-warning">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+              Pendiente
+            </span>
+          </div>
+        </div>
+        <!-- Simple bar chart -->
+        <div class="mt-6 h-72">
+          <svg class="h-full w-full" viewBox="0 0 600 260">
+            <!-- Month labels at top -->
+            <text x="60" y="18" font-size="11" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">Mar</text>
+            <text x="180" y="18" font-size="11" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">Abr</text>
+            <text x="300" y="18" font-size="11" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">May</text>
+            <text x="420" y="18" font-size="11" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">Jun</text>
+            <text x="540" y="18" font-size="11" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">Jul</text>
+
+            <!-- Mar: 78% paid, 22% pending -->
+            <!-- Paid bar -->
+            <rect x="10" y="25" width="100" height="144" fill="var(--color-primary)" rx="4" />
+            <!-- Pending bar on top -->
+            <rect x="10" y="169" width="100" height="40" fill="var(--color-warning)" rx="4" />
+            <!-- Percentage label -->
+            <text x="60" y="235" font-size="10" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">78%</text>
+
+            <!-- Abr: 84% paid, 16% pending -->
+            <rect x="130" y="25" width="100" height="155" fill="var(--color-primary)" rx="4" />
+            <rect x="130" y="180" width="100" height="29" fill="var(--color-warning)" rx="4" />
+            <text x="180" y="235" font-size="10" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">84%</text>
+
+            <!-- May: 91% paid, 9% pending -->
+            <rect x="250" y="25" width="100" height="168" fill="var(--color-primary)" rx="4" />
+            <rect x="250" y="193" width="100" height="16" fill="var(--color-warning)" rx="4" />
+            <text x="300" y="235" font-size="10" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">91%</text>
+
+            <!-- Jun: 95% paid, 5% pending -->
+            <rect x="370" y="25" width="100" height="175" fill="var(--color-primary)" rx="4" />
+            <rect x="370" y="200" width="100" height="9" fill="var(--color-warning)" rx="4" />
+            <text x="420" y="235" font-size="10" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">95%</text>
+
+            <!-- Jul: 98% paid, 2% pending -->
+            <rect x="490" y="25" width="100" height="181" fill="var(--color-primary)" rx="4" />
+            <rect x="490" y="206" width="100" height="3" fill="var(--color-warning)" rx="1.5" />
+            <text x="540" y="235" font-size="10" font-weight="600" fill="var(--color-muted-foreground)" text-anchor="middle">98%</text>
+
+            <!-- Baseline -->
+            <line x1="0" y1="225" x2="600" y2="225" stroke="var(--color-border)" stroke-width="1" stroke-dasharray="4 4" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-border bg-card p-6 shadow-card">
+        <p class="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Distribución de gastos</p>
+        <h3 class="mt-1 text-xl font-semibold">Adónde va tu dinero</h3>
+        <div class="mt-4">
+          <!-- Pie chart -->
+          <svg class="w-full" viewBox="0 0 280 250" preserveAspectRatio="xMidYMid meet">
+            <!-- Background circle -->
+            <circle cx="140" cy="125" r="80" fill="var(--color-card)" />
+
+            <!-- Entrenadores: 48% (172.8 degrees) -->
+            <path d="M 140 125 L 140 45 A 80 80 0 0 1 206.9 180 Z"
+                  fill="var(--color-chart-1)" stroke="var(--color-card)" stroke-width="2" />
+
+            <!-- Cancha: 22% (79.2 degrees) - starts at 172.8 deg -->
+            <path d="M 140 125 L 206.9 180 A 80 80 0 0 1 73.1 180 Z"
+                  fill="var(--color-chart-2)" stroke="var(--color-card)" stroke-width="2" />
+
+            <!-- Uniformes: 18% (64.8 degrees) - starts at 252 deg -->
+            <path d="M 140 125 L 73.1 180 A 80 80 0 0 1 73.1 70 Z"
+                  fill="var(--color-chart-3)" stroke="var(--color-card)" stroke-width="2" />
+
+            <!-- Otros: 12% (43.2 degrees) - starts at 316.8 deg -->
+            <path d="M 140 125 L 73.1 70 A 80 80 0 0 1 140 45 Z"
+                  fill="var(--color-chart-4)" stroke="var(--color-card)" stroke-width="2" />
+
+            <!-- Center circle (donut hole) -->
+            <circle cx="140" cy="125" r="48" fill="var(--color-card)" />
+
+            <!-- Center text -->
+            <text x="140" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-muted-foreground)">Gastos</text>
+            <text x="140" y="137" text-anchor="middle" font-size="15" font-weight="bold" fill="var(--color-foreground)">100%</text>
+          </svg>
+
+          <!-- Legend -->
+          <div class="mt-3 space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-1.5">
+                <div class="h-2 w-2 rounded-full" style="background: var(--color-chart-1)" />
+                <span class="font-medium text-foreground">Entrenadores</span>
+              </div>
+              <span class="font-semibold text-foreground">48%</span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-1.5">
+                <div class="h-2 w-2 rounded-full" style="background: var(--color-chart-2)" />
+                <span class="font-medium text-foreground">Cancha</span>
+              </div>
+              <span class="font-semibold text-foreground">22%</span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-1.5">
+                <div class="h-2 w-2 rounded-full" style="background: var(--color-chart-3)" />
+                <span class="font-medium text-foreground">Uniformes</span>
+              </div>
+              <span class="font-semibold text-foreground">18%</span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <div class="flex items-center gap-1.5">
+                <div class="h-2 w-2 rounded-full" style="background: var(--color-chart-4)" />
+                <span class="font-medium text-foreground">Otros</span>
+              </div>
+              <span class="font-semibold text-foreground">12%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft">
+        <div class="grid h-12 w-12 place-items-center rounded-2xl bg-muted text-success">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-2xl font-bold">412</p>
+          <p class="text-sm text-muted-foreground"><span class="font-semibold text-foreground">Cobros automáticos</span> · este mes</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft">
+        <div class="grid h-12 w-12 place-items-center rounded-2xl bg-muted text-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <p class="text-2xl font-bold">1,284</p>
+          <p class="text-sm text-muted-foreground"><span class="font-semibold text-foreground">Horas registradas</span> · entrenadores</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-soft">
+        <div class="grid h-12 w-12 place-items-center rounded-2xl bg-muted text-warning">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div>
+          <p class="text-2xl font-bold">37</p>
+          <p class="text-sm text-muted-foreground"><span class="font-semibold text-foreground">Avisos morosidad</span> · enviados hoy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

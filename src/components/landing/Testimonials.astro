@@ -1,0 +1,52 @@
+---
+const items = [
+  {
+    q: "Pasamos del 62% al 97% de cobro mensual en 3 meses. Ya no perseguimos a los padres.",
+    n: "Andrés Calle",
+    r: "Director, Club Deportivo Atlas",
+  },
+  {
+    q: "El módulo de horas y nómina nos ahorra 8 horas semanales. Los entrenadores cobran al día.",
+    n: "Marcela Ríos",
+    r: "Administradora, Academia Élite FC",
+  },
+  {
+    q: "Por fin un dashboard que entiendo. Veo mi recaudo, asistencia y gastos en un solo lugar.",
+    n: "Juan Pablo Mejía",
+    r: "Presidente, Club Halcones",
+  },
+];
+---
+
+<section class="bg-muted/40 py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="text-[11px] font-bold uppercase tracking-wider text-primary">Clubes que ya escalaron</p>
+      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Historias que motivan</h2>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {items.map((t) => (
+        <figure class="rounded-3xl border border-border bg-card p-7 shadow-soft">
+          <div class="flex gap-1 text-warning">
+            {Array.from({ length: 5 }).map(() => (
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            ))}
+          </div>
+          <blockquote class="mt-4 text-base leading-relaxed">"{t.q}"</blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <div class="grid h-10 w-10 place-items-center rounded-full bg-gradient-hero text-sm font-bold text-primary-foreground">
+              {t.n.split(" ").map(p => p[0]).slice(0, 2).join("")}
+            </div>
+            <div>
+              <p class="text-sm font-semibold">{t.n}</p>
+              <p class="text-xs text-muted-foreground">{t.r}</p>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
