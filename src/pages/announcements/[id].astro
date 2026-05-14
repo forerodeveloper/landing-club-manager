@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  // In a real SSR environment, we might use a dynamic route
+  // but for Astro SSG we might need a different approach or 
+  // rely on middleware/client-side routing.
+  // For now, let's assume this is a dynamic SSR route or 
+  // we use a generic [id] for client-side capture.
+  return [
+    { params: { id: 'default' } }
+  ];
+}
+
+const { id } = Astro.params;
+---
+
+<Layout title="Convocatoria | Club Sport Manager">
+  <main class="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <!-- Background Glows -->
+    <div class="absolute top-0 -left-20 w-96 h-96 bg-primary-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-0 -right-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-md w-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-[40px] p-10 text-center relative z-10 shadow-2xl">
+      <div class="mb-10 inline-flex items-center justify-center w-24 h-24 bg-primary-600 rounded-3xl shadow-xl shadow-primary-900/20">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+      </div>
+
+      <h1 class="text-3xl font-black text-white mb-4 leading-tight">
+        Convocatoria Oficial
+      </h1>
+      <p class="text-slate-400 text-lg mb-10">
+        Estás a un paso de confirmar tu asistencia y ver los detalles del encuentro.
+      </p>
+
+      <div class="space-y-4">
+        <a 
+          href={`clubsportmanager://announcements/${id}`} 
+          id="open-app-btn"
+          class="block w-full bg-primary-600 hover:bg-primary-500 text-white font-black py-5 rounded-2xl transition-all active:scale-95 shadow-lg shadow-primary-900/20 text-lg"
+        >
+          Abrir en la App
+        </a>
+
+        <div class="pt-6 border-t border-white/5">
+          <p class="text-slate-500 text-sm mb-6">¿Aún no tienes la App oficial?</p>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#" class="bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl flex items-center justify-center transition-all">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="h-8" />
+            </a>
+            <a href="#" class="bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl flex items-center justify-center transition-all">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Play Store" class="h-8" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-10 text-slate-600 text-xs uppercase tracking-widest font-bold">
+        Club Sport Manager
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<script is:inline>
+  // Automatic redirect logic
+  const id = window.location.pathname.split('/').pop();
+  const appLink = `clubsportmanager://announcements/${id}`;
+  
+  // Try to open the app automatically
+  setTimeout(() => {
+    window.location.href = appLink;
+  }, 500);
+
+  // Update button link just in case
+  const btn = document.getElementById('open-app-btn');
+  if (btn) btn.href = appLink;
+</script>
+
+<style>
+  :root {
+    --primary-600: #059669;
+    --primary-500: #10b981;
+  }
+  .bg-primary-600 { background-color: var(--primary-600); }
+  .hover\:bg-primary-500:hover { background-color: var(--primary-500); }
+  .text-primary-600 { color: var(--primary-600); }
+</style>
