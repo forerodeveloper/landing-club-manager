@@ -1,18 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-export function getStaticPaths() {
-  // In a real SSR environment, we might use a dynamic route
-  // but for Astro SSG we might need a different approach or 
-  // rely on middleware/client-side routing.
-  // For now, let's assume this is a dynamic SSR route or 
-  // we use a generic [id] for client-side capture.
-  return [
-    { params: { id: 'default' } }
-  ];
-}
-
-const { id } = Astro.params;
+// We use client-side logic to capture the ID from the query string
+// e.g. /announcements/?id=uuid
 ---
 
 <Layout title="Convocatoria | Club Sport Manager">
@@ -35,7 +25,7 @@ const { id } = Astro.params;
 
       <div class="space-y-4">
         <a 
-          href={`clubsportmanager://announcements/${id}`} 
+          href="#" 
           id="open-app-btn"
           class="block w-full bg-primary-600 hover:bg-primary-500 text-white font-black py-5 rounded-2xl transition-all active:scale-95 shadow-lg shadow-primary-900/20 text-lg"
         >
@@ -64,18 +54,25 @@ const { id } = Astro.params;
 </Layout>
 
 <script is:inline>
-  // Automatic redirect logic
-  const id = window.location.pathname.split('/').pop();
-  const appLink = `clubsportmanager://announcements/${id}`;
+  // Automatic redirect logic using query parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
   
-  // Try to open the app automatically
-  setTimeout(() => {
-    window.location.href = appLink;
-  }, 500);
+  if (id) {
+    const appLink = `clubsportmanager://announcement/${id}`;
+    
+    // Try to open the app automatically
+    setTimeout(() => {
+      window.location.href = appLink;
+    }, 500);
 
-  // Update button link just in case
-  const btn = document.getElementById('open-app-btn');
-  if (btn) btn.href = appLink;
+    // Update button link
+    const btn = document.getElementById('open-app-btn');
+    if (btn) btn.href = appLink;
+  } else {
+    // If no ID, redirect to home or show error
+    console.error('No se encontró el ID de la convocatoria');
+  }
 </script>
 
 <style>
