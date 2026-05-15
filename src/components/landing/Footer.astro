@@ -10,15 +10,38 @@
     </div>
 
     {[
-      { t: "Producto", l: ["Características", "Precios", "Demo", "Novedades"] },
-      { t: "Empresa", l: ["Nosotros", "Blog", "Casos de éxito", "Contacto"] },
-      { t: "Legal", l: ["Privacidad", "Términos", "Cookies"] },
+      { 
+        t: "Producto", 
+        l: [
+          { n: "Características", h: "#features" },
+          { n: "Precios", h: "#pricing" },
+          { n: "Demo", h: "#demo" },
+          { n: "Novedades", h: "#news" }
+        ] 
+      },
+      { 
+        t: "Empresa", 
+        l: [
+          { n: "Nosotros", h: "#about" },
+          { n: "Blog", h: "/blog" },
+          { n: "Casos de éxito", h: "#cases" },
+          { n: "Contacto", h: "#contact" }
+        ] 
+      },
+      { 
+        t: "Legal", 
+        l: [
+          { n: "Privacidad", h: "/politica-de-privacidad" },
+          { n: "Términos", h: "/terminos-y-condiciones" },
+          { n: "Cookies", h: "/cookies" }
+        ] 
+      },
     ].map((c) => (
       <div>
         <p class="text-[11px] font-bold uppercase tracking-wider text-foreground">{c.t}</p>
         <ul class="mt-4 space-y-2">
           {c.l.map((it) => (
-            <li><a href="#" class="text-sm text-muted-foreground hover:text-foreground">{it}</a></li>
+            <li><a href={it.h} class="text-sm text-muted-foreground hover:text-foreground">{it.n}</a></li>
           ))}
         </ul>
       </div>

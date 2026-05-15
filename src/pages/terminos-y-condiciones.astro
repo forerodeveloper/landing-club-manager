@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/landing/Navbar.astro';
+import Footer from '../components/landing/Footer.astro';
+---
+
+<Layout 
+  title="Términos y Condiciones — ClubManager"
+  description="Lee los términos y condiciones de uso de la plataforma ClubManager."
+>
+  <Navbar />
+  
+  <main class="bg-background pt-32 pb-20">
+    <div class="mx-auto max-w-3xl px-6">
+      <header class="mb-12">
+        <h1 class="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+          Términos y <span class="text-primary">Condiciones</span>
+        </h1>
+        <p class="mt-4 text-muted-foreground">
+          Última actualización: 15 de mayo de 2026
+        </p>
+      </header>
+
+      <div class="max-w-none space-y-10 text-muted-foreground leading-relaxed">
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">1. Aceptación de los Términos</h2>
+          <p>
+            Al acceder o utilizar la plataforma <strong>ClubManager</strong> (en adelante, "el Servicio"), usted acepta estar sujeto a estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no podrá utilizar nuestro servicio.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">2. Descripción del Servicio</h2>
+          <p>
+            ClubManager es una plataforma de software como servicio (SaaS) diseñada para la gestión de clubes deportivos, academias y escuelas de formación. El servicio incluye, pero no se limita a, la gestión de asistencia, cobro automático de mensualidades, comunicación con padres vía WhatsApp, gestión de convocatorias y liquidación de nómina de entrenadores.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">3. Cuentas y Responsabilidades</h2>
+          <ul class="list-disc pl-6 mt-4 space-y-2">
+            <li><strong>Administradores del Club:</strong> Son responsables de la veracidad de la información cargada (jugadores, pagos, horarios) y del cumplimiento de las normativas locales de protección de datos de sus miembros.</li>
+            <li><strong>Padres y Jugadores:</strong> Son responsables de mantener la confidencialidad de sus credenciales de acceso y de proporcionar información precisa para el registro.</li>
+            <li><strong>Seguridad:</strong> El usuario es responsable de cualquier actividad que ocurra bajo su cuenta. Debe notificarnos inmediatamente sobre cualquier uso no autorizado.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">4. Pagos y Suscripciones</h2>
+          <p>
+            ClubManager ofrece planes de suscripción para los clubes. Los términos de pago, ciclos de facturación y precios se detallan en el momento de la contratación. 
+          </p>
+          <ul class="list-disc pl-6 mt-4 space-y-2">
+            <li><strong>Recaudo a Padres:</strong> ClubManager facilita la gestión de cobros, pero no es responsable de las disputas financieras entre el club y los padres de familia.</li>
+            <li><strong>Cancelación:</strong> El club puede cancelar su suscripción en cualquier momento. La cancelación entrará en vigor al final del periodo de facturación actual.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">5. Propiedad Intelectual</h2>
+          <p>
+            Todo el contenido, características y funcionalidad de la plataforma (incluyendo código, diseño, logotipos y textos) son propiedad exclusiva de ClubManager y están protegidos por las leyes internacionales de derechos de autor y propiedad intelectual.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">6. Limitación de Responsabilidad</h2>
+          <p>
+            ClubManager no será responsable de ningún daño indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de usar el servicio. No garantizamos que el servicio sea ininterrumpido o esté libre de errores, aunque trabajamos constantemente para asegurar la máxima disponibilidad.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">7. Suspensión y Terminación</h2>
+          <p>
+            Nos reservamos el derecho de suspender o cancelar su acceso al servicio de forma inmediata, sin previo aviso, por cualquier conducta que consideremos que viola estos términos o sea perjudicial para otros usuarios o para ClubManager.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-foreground mb-4">8. Ley Aplicable</h2>
+          <p>
+            Estos términos se regirán e interpretarán de acuerdo con las leyes vigentes del país de operación principal de ClubManager, sin tener en cuenta sus disposiciones sobre conflictos de leyes.
+          </p>
+        </section>
+
+        <section class="border-t border-border pt-8 mt-12">
+          <p class="text-sm">
+            Si tiene alguna pregunta sobre estos Términos, por favor contáctenos:<br />
+            <strong>ClubManager Support</strong><br />
+            Email: <a href="mailto:soporte@clubmanager.com" class="text-primary hover:underline">soporte@clubmanager.com</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
