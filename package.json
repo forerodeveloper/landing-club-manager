@@ -24,5 +24,8 @@
   },
   "overrides": {
     "vite": "7.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.7.3"
   }
 }

@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-	title = "ClubManager — Gestiona, cobra y haz crecer tu club deportivo",
-	description = "Plataforma todo-en-uno para clubes deportivos: recaudo automático de padres, contabilidad, nómina de entrenadores, asistencia y comunicación por WhatsApp."
+	title = "Club Sport Manager | Gestión para Clubes de Fútbol, Baloncesto, Tenis y más",
+	description = "La plataforma SaaS definitiva para la administración de cualquier club deportivo. Control de pagos, asistencia y registro para fútbol, natación, artes marciales y más."
 } = Astro.props;
 ---
 
@@ -37,17 +37,52 @@ const {
 		<meta property="og:locale" content="es_ES">
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
-		<meta property="og:site_name" content="ClubManager">
-		<meta property="og:title" content="ClubManager — La plataforma para tu club deportivo" />
-		<meta property="og:description" content="Recaudo, contabilidad, nómina y comunicación. Todo en un solo panel." />
-		<meta property="og:image" content="/assets/og-image-csm.png" />
+		<meta property="og:site_name" content="Club Sport Manager">
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="https://www.clubsportmanager.com/logo-horizontal-verde-2.png" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content="ClubManager — La plataforma para tu club deportivo" />
-		<meta property="twitter:description" content="Recaudo, contabilidad, nómina y comunicación. Todo en un solo panel." />
-		<meta property="twitter:image" content="/assets/og-image-csm.png" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content="https://www.clubsportmanager.com/logo-horizontal-verde-2.png" />
+
+		<!-- Structured Data (JSON-LD) - Schema.org -->
+		<script type="application/ld+json" is:inline>
+			{
+				"@context": "https://schema.org",
+				"@type": "SoftwareApplication",
+				"name": "Club Sport Manager",
+				"operatingSystem": "iOS, Android, Web",
+				"applicationCategory": "BusinessApplication, SportsApplication",
+				"offers": {
+					"@type": "Offer",
+					"price": "0",
+					"priceCurrency": "COP"
+				},
+				"description": "La plataforma SaaS definitiva para la administración de cualquier club deportivo. Control de pagos, asistencia, nómina de entrenadores y comunicación automática por WhatsApp.",
+				"aggregateRating": {
+					"@type": "AggregateRating",
+					"ratingValue": "4.9",
+					"ratingCount": "120"
+				}
+			}
+		</script>
+		<script type="application/ld+json" is:inline>
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "Club Sport Manager",
+				"url": "https://www.clubsportmanager.com",
+				"logo": "https://www.clubsportmanager.com/logo-single.png",
+				"sameAs": [
+					"https://apps.apple.com/co/app/clubsport-manager/id6768074360",
+					"https://play.google.com/store/apps/details?id=com.fordev.clubsportmanager"
+				]
+			}
+		</script>
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
